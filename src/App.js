@@ -62,7 +62,7 @@ class App extends React.Component {
 
           {/* Main Components to Render Using Router */}
           <Route path="/"
-            exact render={ ()=><Home title={ this.state.home.title } subTitle={ this.state.home.subTitle } text={ this.state.home.text } /> } />
+            exact render={ ()=><Home title={ this.state.home.title } subTitle={ this.state.home.subTitle } summary={ this.state.home.summary } /> } />
 
           <Route path="/about" render={ ()=><AboutPage title={ this.state.home.title } /> } />
 
