@@ -13,9 +13,9 @@ function CardInfo( props ) {
 
   return (
 
-    <animated.div className="" style={ style }>
-      <p> { props.title } </p>
-      <p> { props.subTitle  } </p>
+    <animated.div className="g-card-info" style={ style }>
+      <p className="g-card-title"> { props.title } </p>
+      <p className="g-card-subTitle"> { props.subTitle  } </p>
       <a href={ props.link } target="_blank" rel="noopener noreferrer"> View </a>
     </animated.div>
     

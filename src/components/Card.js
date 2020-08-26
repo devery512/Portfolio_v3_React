@@ -3,8 +3,8 @@ import CardInfo from './CardInfo';
 
 function Card( props ) {
   return (
-    <div>
-      <img className="" src={ props.item.imgSrc } />
+    <div className="d-inline-block g-card" onClick={ ( e ) => props.click( props.item ) }>
+      <img className="g-card-image" src={ props.item.imgSrc } />
       { props.item.selected &&
       <CardInfo
         title={ props.item.title }

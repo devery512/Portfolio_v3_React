@@ -60,7 +60,7 @@ class Carousel extends React.Component {
   // Function that creates the card component for each items in the array.
   makeItems = ( items ) => {
     return items.map( item => {
-      return <Card item={ item } onClick={ (e => this.handleCardClick( item.id, e )) } key={ item.id }  />
+      return <Card item={ item } click={ (e => this.handleCardClick( item.id, e )) } key={ item.id }  />
     })
   }
 
