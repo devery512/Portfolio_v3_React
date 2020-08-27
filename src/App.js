@@ -17,27 +17,27 @@ class App extends React.Component {
   constructor( props ){
     
     super( props)
-    this.state={
-      title: 'Garrian Brown',
+    this.state = {
+      name: "Garrian Brown",
       // Pages to navigate to (Everything for navbar)
       headerLinks: [
-        { title: 'Home', path:'/'},
-        { title: 'About', path:'/about'},
-        { title: 'Contact', path:'/contact'}
+        { title: "Home", path: "/" },
+        { title: "About", path: "/about" },
+        { title: "Contact", path: "/contact" },
       ],
       // Information for each page
       home: {
-        title: 'Be Relentless',
-        subTitle: 'Projects that make a difference',
-        summary: 'Checkout my projects below'
+        title: "Be Relentless",
+        subTitle: "Projects that make a difference",
+        summary: "Checkout my projects below",
       },
       about: {
-        title: 'About Me',
+        title: "About Me",
       },
       contact: {
-        title: 'Let\s Talk',
-      }
-    }
+        title: "Let\s Get In Touch",
+      },
+    };
   }
   
   
@@ -48,7 +48,7 @@ class App extends React.Component {
         <Container maxWidth="xl">
           {/* Navigation Section */}
           <Navbar className="border-bottom" bg="trasparent" expand="lg">
-            <Navbar.Brand>Garrian Brown</Navbar.Brand>
+            <Navbar.Brand>{ this.state.name }</Navbar.Brand>
             {/* Mobile Toggle/Collapse */}
             <Navbar.Toggle aria-controls="navbar-toggle" />
             <Navbar.Collapse id="navbar-toggle">
@@ -64,9 +64,9 @@ class App extends React.Component {
           <Route path="/"
             exact render={ ()=><Home title={ this.state.home.title } subTitle={ this.state.home.subTitle } summary={ this.state.home.summary } /> } />
 
-          <Route path="/about" render={ ()=><AboutPage title={ this.state.home.title } /> } />
+          <Route path="/about" render={ ()=><AboutPage title={ this.state.about.title } /> } />
 
-          <Route path="/contact" render={ ()=><ContactPage title={ this.state.home.title } /> } />
+          <Route path="/contact" render={ ()=><ContactPage title={ this.state.contact.title } /> } />
           {/* Footer Component */}
           <Footer />
         </Container>
