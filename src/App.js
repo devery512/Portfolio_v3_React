@@ -27,9 +27,9 @@ class App extends React.Component {
       ],
       // Information for each page
       home: {
-        title: "Be Relentless",
-        subTitle: "Projects that make a difference",
-        summary: "Checkout my projects below",
+        title: "Developer By Day, Enthusiast By Night",
+        subTitle: "Self-learning software and hardware engineering through research & development.",
+        summary: "Checkout some of the things i've been working on below",
       },
       about: {
         title: "About Me",
@@ -39,7 +39,6 @@ class App extends React.Component {
       },
     };
   }
-  
   
   render(){
 
