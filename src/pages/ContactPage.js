@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Hero from "../components/Hero";
 import Content from "../components/Content";
 import Axios from "axios";
+require( 'dotenv' ).config();
 
 class ContactPage extends React.Component {
   constructor(props) {
@@ -29,16 +30,39 @@ class ContactPage extends React.Component {
     });
   };
 
-  handleSubmit = ( e ) => {
-    e.preventDefault();
+  handleSubmit = (event) => {
+        event.preventDefault();
 
-    console.log( e.target );
+        console.log(event.target);
 
-    this.setState({
-      disabled: true,
-    });
+        this.setState({
+            disabled: true
+        });
 
-  };
+        Axios.post( ( process.env.REACT_APP_API_SERVER + '/api/email' ), this.state)
+            .then(res => {
+                if(res.data.success) {
+                    this.setState({
+                        disabled: false,
+                        emailSent: true
+                    });
+                } else {
+                    this.setState({
+                        disabled: false,
+                        emailSent: false
+                    });
+                }
+            })
+            .catch(err => {
+                console.log(err);
+
+                this.setState({
+                    disabled: false,
+                    emailSent: false
+                });
+            })
+
+    }
 
   render( props ) {
     return (
@@ -89,10 +113,10 @@ class ContactPage extends React.Component {
               Send
             </Button>
 
-            {this.state.emailSent === true && (
+            {this.state.emailSent == true && (
               <p className="d-inline success-msg">Email Sent</p>
             )}
-            {this.state.emailSent === false && (
+            {this.state.emailSent == false && (
               <p className="d-inline err-msg">Email Not Sent</p>
             )}
           </Form>
