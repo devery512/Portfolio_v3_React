@@ -7,6 +7,7 @@ import NavbarBrand from 'react-bootstrap/NavbarBrand';
 import Footer from './components/Footer';
 import Home from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import SocialFeed from './pages/SocialFeeds';
 import ContactPage from './pages/ContactPage';
 
 
@@ -24,6 +25,7 @@ class App extends React.Component {
         { title: "Home", path: "/" },
         { title: "About", path: "/about" },
         { title: "Contact", path: "/contact" },
+        { title: "Social Feed", path: "/feed" },
       ],
       // Information for each page
       home: {
@@ -33,6 +35,9 @@ class App extends React.Component {
       },
       about: {
         title: "About Me",
+      },
+      social:{
+        title: 'Live Feed'
       },
       contact: {
         title: "Let\s Get In Touch",
@@ -54,6 +59,7 @@ class App extends React.Component {
               <Nav className="ml-auto">
                 <Link className="nav-link" to="/">Home</Link>
                 <Link className="nav-link" to="/about">About</Link>
+                <Link className="nav-link" to="/feed">Social Feed</Link>
                 <Link className="nav-link" to="/contact">Contact</Link>
               </Nav>
             </Navbar.Collapse>
@@ -64,6 +70,8 @@ class App extends React.Component {
             exact render={ ()=><Home title={ this.state.home.title } subTitle={ this.state.home.subTitle } summary={ this.state.home.summary } /> } />
 
           <Route path="/about" render={ ()=><AboutPage title={ this.state.about.title } /> } />
+
+          <Route path="/feed" render={ ()=><SocialFeed title={ this.state.social.title } /> } />
 
           <Route path="/contact" render={ ()=><ContactPage title={ this.state.contact.title } /> } />
           {/* Footer Component */}
