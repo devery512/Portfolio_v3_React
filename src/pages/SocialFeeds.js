@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import Content from '../components/Content';
+import { Timeline } from 'react-twitter-widgets';
+import { Container } from '@material-ui/core';
 
 function SocialFeed( props ){
-    
+
     return(
         <div>
             <Hero title={ props.title } />
-
             <Content>
                 <p>Checkout and follow along with my development process below on my twitter and instagram pages.</p>
-
-                <a class="twitter-timeline" data-theme="light" href="https://twitter.com/deveryxcv?ref_src=twsrc%5Etfw">Tweets by deveryxcv</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <Container >
+                    <Timeline
+                        dataSource={{
+                            sourceType: 'profile',
+                            screenName: 'deveryxcv'
+                        }}
+                        options={{
+                            height: '800'
+                        }}
+                    />
+                </Container>
+                
             </Content>
         </div>
     );
